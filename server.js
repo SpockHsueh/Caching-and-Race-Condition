@@ -1,5 +1,5 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -10,9 +10,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route
-app.get("/", (req, res) => {
-  res.json({ message: "HELLO WORLD" });
+app.get('/', (req, res) => {
+  res.json({ message: 'HELLO WORLD' });
 });
+
+require('./app/router/customer.routes.js')(app);
 
 const PORT = process.env.PORT || 3000;
 
